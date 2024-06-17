@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "lib": ["ES5", "ES6"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "target": "ES5",
+    "strict": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+  // "include": ["src/**/*.ts", "ormconfig.ts"]
+}

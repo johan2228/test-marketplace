@@ -1,0 +1,39 @@
+service: test-marketplace
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  stage: ${opt:stage}
+  timeout: 30
+  environment:
+    STAGE: ${self:provider.stage}
+
+functions:
+  listProducts:
+    handler: src/adapters/primary/http/productHandler.listProductsHandler
+    events:
+      - http:
+          path: products
+          method: get
+          cors: true
+
+  createProduct:
+    handler: src/adapters/primary/http/productHandler.createProductHandler
+    events:
+      - http:
+          path: products
+          method: post
+          cors: true
+
+  getProductDetails:
+    handler: src/adapters/primary/http/productHandler.getProductDetailsHandler
+    events:
+      - http:
+          path: products/{id}
+          method: get
+          cors: true

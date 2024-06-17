@@ -1,0 +1,40 @@
+{
+  "name": "test-marketplace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/**/*.ts --outdir=dist --bundle --platform=node --target=node18 --format=cjs",
+    "lint": "eslint --ext .ts src",
+    "prettier": "prettier --write --ignore-unknown .",
+    "typeorm": "typeorm-ts-node-commonjs -d ormconfig.ts",
+    "dev": "sls offline -s dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@serverless/typescript": "^3.38.0",
+    "@types/aws-lambda": "^8.10.138",
+    "@types/node": "^20.14.2",
+    "dotenv": "^16.4.5",
+    "pg": "^8.12.0",
+    "reflect-metadata": "^0.2.2",
+    "serverless": "^3.34.0",
+    "typeorm": "^0.3.20",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.6",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "esbuild": "^0.20.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.3.2",
+    "serverless-esbuild": "^1.52.1",
+    "serverless-offline": "^13.6.0",
+    "ts-node": "^10.9.2"
+  }
+}
