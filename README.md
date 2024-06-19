@@ -8,7 +8,10 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
    git clone https://github.com/johan2228/test-marketplace.git
 
 2. Instalar dependencias:
+
+```sh
    npm install
+```
 
 3. Configura las variables de entorno:
    Crea un archivo .env en la raíz del proyecto y añade las variables necesarias:
@@ -19,7 +22,10 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 ### Uso
 
 1. Iniciar el servidor:
+
+```sh
    npm run dev
+```
 
 2. Documentación API con Postman:
 
@@ -121,12 +127,12 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 │ │ ├── IProductService.ts
 │ │ └── ISaleService.ts
 │ └── migrations
-│ ├── 1718731352571-tableProductAndCart.ts
-│ ├── 1718748352575-tableUser.ts
-│ ├── 1718766968161-InsertUsers.ts
-│ ├── 1718767030845-InsertProduct.ts
-│ ├── 1718805759682-tableSalesAndRelationships.ts
-│ └── 1718805793402-insertSales.ts
+│   ├── 1718731352571-tableProductAndCart.ts
+│   ├── 1718748352575-tableUser.ts
+│   ├── 1718766968161-InsertUsers.ts
+│   ├── 1718767030845-InsertProduct.ts
+│   ├── 1718805759682-tableSalesAndRelationships.ts
+│   └── 1718805793402-insertSales.ts
 ├── ormconfig.ts
 ├── package.json
 ├── serverless.ts
@@ -137,13 +143,25 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 ### Migraciones
 
 - Crear migración
+
+```sh
   npx typeorm migration:create src/migrations/NOMBREDELAMIGRACION
+```
 
 - Generar migración
+
+```sh
   npm run typeorm migration:generate src/migrations/NOMBREDELAMIGRACION
+```
 
 - Revertir migración
+
+```sh
   npm run typeorm migration:revert
+```
 
 - Correr migración
+
+```sh
   npm run typeorm migration:run
+```
