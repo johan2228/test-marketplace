@@ -7,7 +7,8 @@
     "lint": "eslint --ext .ts src",
     "prettier": "prettier --write --ignore-unknown .",
     "typeorm": "typeorm-ts-node-commonjs -d ormconfig.ts",
-    "dev": "sls offline -s dev"
+    "dev": "sls offline -s dev",
+    "pretty": "pretty-quick"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,7 @@
     "dotenv": "^16.4.5",
     "pg": "^8.12.0",
     "reflect-metadata": "^0.2.2",
-    "serverless": "^3.34.0",
+    "serverless": "^3.38.0",
     "typeorm": "^0.3.20",
     "typescript": "^5.4.5"
   },
@@ -33,6 +34,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "prettier": "^3.3.2",
+    "pretty-quick": "^4.0.0",
+    "serverless-dotenv-plugin": "^6.0.0",
     "serverless-esbuild": "^1.52.1",
     "serverless-offline": "^13.6.0",
     "ts-node": "^10.9.2"

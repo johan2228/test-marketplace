@@ -6,12 +6,11 @@ export const listProductsHandler = async (event: APIGatewayProxyEvent): Promise<
     const page = event.queryStringParameters?.page ? parseInt(event.queryStringParameters.page) : 1;
     const pageSize = event.queryStringParameters?.pageSize ? parseInt(event.queryStringParameters.pageSize) : 10;
     const search = event.queryStringParameters?.search || '';
-    console.log('listProducts entro handler')
     const products = await listProductsUseCase.execute(page, pageSize, search);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ products }),
+      body: JSON.stringify(products),
     };
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -42,12 +41,13 @@ export const createProductHandler = async (event: APIGatewayProxyEvent): Promise
 export const getProductDetailsHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   try {
     const productId = parseInt(event.pathParameters.id);
+    console.log("productid handler", productId);
 
     const product = await getProductDetailsUseCase.execute(productId);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ product }),
+      body: JSON.stringify(product),
     };
   } catch (error) {
     console.error('Error fetching product details:', error);

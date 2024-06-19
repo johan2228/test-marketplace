@@ -11,7 +11,6 @@ export class ListProductsUseCase {
 
   async execute(page: number, pageSize: number, search: string): Promise<Product[]> {
     try {
-      console.log('listProducts entro usecase')
       return await this.productService.listProducts(page, pageSize, search);
     } catch (error) {
       console.error('Error in ListProductsUseCase:', error);

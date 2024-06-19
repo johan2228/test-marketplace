@@ -3,6 +3,9 @@ service: test-marketplace
 plugins:
   - serverless-esbuild
   - serverless-offline
+  - serverless-dotenv-plugin
+
+useDotenv: true
 
 provider:
   name: aws
@@ -12,6 +15,10 @@ provider:
   timeout: 30
   environment:
     STAGE: ${self:provider.stage}
+    DB_HOST: ${env:DB_HOST}
+    DB_DATABASE: ${env:DB_DATABASE}
+    DB_USERNAME: ${env:DB_USERNAME}
+    DB_PASSWORD: ${env:DB_PASSWORD}
 
 functions:
   listProducts:
@@ -35,5 +42,37 @@ functions:
     events:
       - http:
           path: products/{id}
+          method: get
+          cors: true
+
+  addProductToCart:
+    handler: src/adapters/primary/http/cartHandler.addProductToCartHandler
+    events:
+      - http:
+          path: cart/products
+          method: post
+          cors: true
+
+  removeProductFromCart:
+    handler: src/adapters/primary/http/cartHandler.removeProductFromCartHandler
+    events:
+      - http:
+          path: cart/products
+          method: delete
+          cors: true
+
+  getCart:
+    handler: src/adapters/primary/http/cartHandler.getCartHandler
+    events:
+      - http:
+          path: cart
+          method: get
+          cors: true
+
+  getSalesByCategoryAndMonth:
+    handler: src/adapters/primary/http/salesHandler.getSalesByCategoryAndMonthHandler
+    events:
+      - http:
+          path: sales/category-month
           method: get
           cors: true

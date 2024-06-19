@@ -2,7 +2,10 @@ import "reflect-metadata"
 import { DataSource } from 'typeorm';
 import * as dotenv from "dotenv";
 dotenv.config();
-import Product from "./src/entities/Product";
+import { ProductSchema } from './src/infrastructure/entities/ProductSchema';
+import { CartSchema } from './src/infrastructure/entities/CartSchema';
+import { UserSchema } from './src/infrastructure/entities/UserSchema';
+import { SaleSchema } from "./src/infrastructure/entities/SaleSchema";
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -11,8 +14,13 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  // synchronize: true, 
   logging: false,
-  entities: [Product],
-  migrations: [],
+  entities: [ProductSchema, CartSchema, UserSchema, SaleSchema],
+  migrations: [__dirname + '/src/migrations/*.ts'],
+  ssl: {
+    rejectUnauthorized: false,
+  },
+  extra: {
+    sslmode: "disable",
+  },
 });
