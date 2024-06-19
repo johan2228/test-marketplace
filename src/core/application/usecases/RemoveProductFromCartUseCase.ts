@@ -1,4 +1,4 @@
-import { ICartService } from '../../../interfaces/ICartService';
+import { ICartService } from '../interfaces/ICartService';
 import { Cart } from '../../domain/Cart';
 
 export class RemoveProductFromCartUseCase {
@@ -10,7 +10,10 @@ export class RemoveProductFromCartUseCase {
 
   async execute(userId: number, productId: number): Promise<Cart> {
     try {
-      const cart = await this.cartService.removeProductFromCart(userId, productId);
+      const cart = await this.cartService.removeProductFromCart(
+        userId,
+        productId,
+      );
       return cart;
     } catch (error) {
       console.error('Error in RemoveProductFromCartUseCase:', error);

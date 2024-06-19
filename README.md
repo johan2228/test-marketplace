@@ -5,7 +5,9 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 ### Instalación
 
 1. Clona el repositorio:
-   git clone https://github.com/johan2228/test-marketplace.git
+
+   - git clone https://github.com/johan2228/test-marketplace.git
+   - git clone git@github.com:johan2228/test-marketplace.git
 
 2. Instalar dependencias:
 
@@ -15,9 +17,9 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 
 3. Configura las variables de entorno:
    Crea un archivo .env en la raíz del proyecto y añade las variables necesarias:
-   DB_HOST=localhost
-   DB_USER=tu-usuario
-   DB_PASSWORD=tu-contraseña
+   - DB_HOST=localhost
+   - DB_USER=tu-usuario
+   - DB_PASSWORD=tu-contraseña
 
 ### Uso
 
@@ -30,45 +32,56 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 2. Documentación API con Postman:
 
 - Listar productos
-  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/products
+  GET - http://localhost:3000/dev/api/v1/products
 
 - Buscar producto
-  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/products?search=Product 1
-  Query Params
-  Key:search value:Product 1
+  GET - http://localhost:3000/dev/api/v1/products?search=ProductName
+
+  - Query Params
+    - Key: search
+    - value: ProductName
 
 - Detalle del producto
-  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/products/1
+  GET - http://localhost:3000/dev/api/v1/products/1
 
 - Agregar producto al carrito de compras
-  POST - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/cart/products
-  Request Headers
-  key: user-id value: 1
-  Body raw (json)
-  {
-  "productId": 1
-  }
+  POST - http://localhost:3000/dev/api/v1/cart/products
+
+  - Request Headers
+    - key: user-id
+    - value: userId (ejemplo: 1)
+    - Body raw (json)
+      - {
+        "productId": productId (ejemplo: 1)
+        }
 
 - Detalle del carrito de compras
-  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/cart
-  Request Headers
-  key: user-id value: 1
-  Body raw (json)
-  {
-  "productId": 1
-  }
+  GET - http://localhost:3000/dev/api/v1/cart
+
+  - Request Headers
+    - key: user-id
+    - value: userId (ejemplo: 1)
+    - Body raw (json)
+      - {
+        "productId": productId (ejemplo: 1)
+        }
 
 - Remover producto del carrito de compras
-  DELETE - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/cart/products
-  Request Headers
-  key: user-id value: 1
-  Body raw (json)
-  {
-  "productId": 1
-  }
+  DELETE - http://localhost:3000/dev/api/v1/cart/products
+
+  - Request Headers
+    - key: user-id
+    - value: userId (ejemplo: 1)
+    - Body raw (json)
+      - {
+        "productId": productId (ejemplo: 1)
+        }
 
 - Ventas por categoria y mes
-  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/sales/category-month
+  GET - http://localhost:3000/dev/api/v1/sales/category-month
+
+- Actualmente esta publicado en la url https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/api/v1/
+- en la carpeta que se encuentra en la raiz del proyecto llamada docs, esta la collection exportada de postman.
 
   3. Funciones:
 
@@ -89,25 +102,29 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 │ │ ├── container
 │ │ │ └── index.ts
 │ │ └── primary
-│ │ └── http
-│ │ ├── cartHandler.ts
-│ │ ├── productHandler.ts
-│ │ └── salesHandler.ts
+│ │   └── http
+│ │     ├── cartHandler.ts
+│ │     ├── productHandler.ts
+│ │     └── salesHandler.ts
 │ ├── core
 │ │ ├── application
-│ │ │ └── usecases
-│ │ │ ├── AddProductToCartUseCase.ts
-│ │ │ ├── CreateProductUseCase.ts
-│ │ │ ├── GetCartUseCase.ts
-│ │ │ ├── GetProductDetailsUseCase.ts
-│ │ │ ├── GetSalesByCategoryAndMonthUseCase.ts
-│ │ │ ├── ListProductsUseCase.ts
-│ │ │ └── RemoveProductFromCartUseCase.ts
+│ │ | ├── usecases
+│ │ │ |  ├── AddProductToCartUseCase.ts
+│ │ │ |  ├── CreateProductUseCase.ts
+│ │ │ |  ├── GetCartUseCase.ts
+│ │ │ |  ├── GetProductDetailsUseCase.ts
+│ │ │ |  ├── GetSalesByCategoryAndMonthUseCase.ts
+│ │ │ |  ├── ListProductsUseCase.ts
+│ │ │ |  └── RemoveProductFromCartUseCase.ts
+│ | | └──interfaces
+│ │ |    ├── ICartService.ts
+│ │ |    ├── IProductService.ts
+│ │ |    └── ISaleService.ts
 │ │ └── domain
-│ │ ├── Cart.ts
-│ │ ├── Product.ts
-│ │ ├── Sale.ts
-│ │ └── types.ts
+│ │       ├── Cart.ts
+│ │       ├── Product.ts
+│ │       ├── Sale.ts
+│ │       └── types.ts
 │ ├── infrastructure
 │ │ ├── container
 │ │ │ └── index.ts
@@ -119,13 +136,9 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 │ │ │ ├── SaleSchema.ts
 │ │ │ └── UserSchema.ts
 │ │ └── repositories
-│ │ ├── CartRepository.ts
-│ │ ├── ProductRepository.ts
-│ │ └── SaleRepository.ts
-│ ├── interfaces
-│ │ ├── ICartService.ts
-│ │ ├── IProductService.ts
-│ │ └── ISaleService.ts
+│ │   ├── CartRepository.ts
+│ │   ├── ProductRepository.ts
+│ │   └── SaleRepository.ts
 │ └── migrations
 │   ├── 1718731352571-tableProductAndCart.ts
 │   ├── 1718748352575-tableUser.ts

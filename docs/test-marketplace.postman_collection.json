@@ -1,0 +1,169 @@
+{
+  "info": {
+    "_postman_id": "df0200a3-984e-4d22-9c4f-64d5925e2da5",
+    "name": "test-marketplace",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "9184155"
+  },
+  "item": [
+    {
+      "name": "SalesByMonthAndCategory",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/dev/api/v1/sales/category-month",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["dev", "api", "v1", "sales", "category-month"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetailCart",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "user-id",
+            "value": "3",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": 2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/dev/api/v1/cart",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["dev", "api", "v1", "cart"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "RemoveProductFromCart",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "user-id",
+            "value": "3",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/dev/api/v1/cart/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["dev", "api", "v1", "cart", "products"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "AddProductToCart",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "user-id",
+            "value": "3",
+            "type": "default"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/dev/api/v1/cart/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["dev", "api", "v1", "cart", "products"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DetailProduct",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/dev/api/v1/products/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["dev", "api", "v1", "products", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SearchProduct",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/dev/api/v1/products?search=ProductName",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["dev", "api", "v1", "products"],
+          "query": [
+            {
+              "key": "search",
+              "value": "ProductName"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ListProducts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/dev/api/v1/products",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["dev", "api", "v1", "products"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

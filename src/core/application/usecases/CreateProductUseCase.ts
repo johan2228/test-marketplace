@@ -1,4 +1,4 @@
-import { IProductService } from '../../../interfaces/IProductService';
+import { IProductService } from '../interfaces/IProductService';
 import { Product } from '../../domain/Product';
 
 export class CreateProductUseCase {

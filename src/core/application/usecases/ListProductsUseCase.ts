@@ -1,6 +1,5 @@
-import { IProductService } from '../../../interfaces/IProductService';
+import { IProductService } from '../interfaces/IProductService';
 import { Product } from '../../domain/Product';
-
 
 export class ListProductsUseCase {
   private productService: IProductService;
@@ -9,7 +8,11 @@ export class ListProductsUseCase {
     this.productService = productService;
   }
 
-  async execute(page: number, pageSize: number, search: string): Promise<Product[]> {
+  async execute(
+    page: number,
+    pageSize: number,
+    search: string,
+  ): Promise<Product[]> {
     try {
       return await this.productService.listProducts(page, pageSize, search);
     } catch (error) {

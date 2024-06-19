@@ -1,4 +1,4 @@
-import { IProductService } from '../../interfaces/IProductService';
+import { IProductService } from '../../core/application/interfaces/IProductService';
 import { Product } from '../../core/domain/Product';
 import { Database } from '../database/dbManager';
 import { ProductSchema } from '../entities/ProductSchema';
@@ -13,7 +13,11 @@ export class ProductRepository implements IProductService {
     }
   }
 
-  async listProducts(page: number, pageSize: number, search: string): Promise<Product[]> {
+  async listProducts(
+    page: number,
+    pageSize: number,
+    search: string,
+  ): Promise<Product[]> {
     try {
       await this.initializeRepository();
       const query = this.productRepository.createQueryBuilder('product');
@@ -52,8 +56,10 @@ export class ProductRepository implements IProductService {
   async getProductById(productId: number): Promise<Product> {
     try {
       await this.initializeRepository();
-      console.log("productid repository", productId);
-      const product = await this.productRepository.findOne({ where: { id: productId } });
+      console.log('productid repository', productId);
+      const product = await this.productRepository.findOne({
+        where: { id: productId },
+      });
       if (!product) throw new Error('Product not found');
       return ProductSchema.toDomain(product);
     } catch (error) {

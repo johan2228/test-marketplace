@@ -1,4 +1,4 @@
-import { ICartService } from '../../../interfaces/ICartService';
+import { ICartService } from '../interfaces/ICartService';
 import { Cart } from '../../domain/Cart';
 
 export class AddProductToCartUseCase {
