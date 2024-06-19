@@ -67,59 +67,60 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 ### Estructura del proyecto
 
 .
-┣ 📦src
-┃ ┣ 📂adapters
-┃ ┃ ┣ 📂container
-┃ ┃ ┃ ┗ 📜index.ts
-┃ ┃ ┗ 📂primary
-┃ ┃ ┃ ┗ 📂http
-┃ ┃ ┃ ┃ ┣ 📜cartHandler.ts
-┃ ┃ ┃ ┃ ┣ 📜productHandler.ts
-┃ ┃ ┃ ┃ ┗ 📜salesHandler.ts
-┃ ┣ 📂core
-┃ ┃ ┣ 📂application
-┃ ┃ ┃ ┗ 📂usecases
-┃ ┃ ┃ ┃ ┣ 📜AddProductToCartUseCase.ts
-┃ ┃ ┃ ┃ ┣ 📜CreateProductUseCase.ts
-┃ ┃ ┃ ┃ ┣ 📜GetCartUseCase.ts
-┃ ┃ ┃ ┃ ┣ 📜GetProductDetailsUseCase.ts
-┃ ┃ ┃ ┃ ┣ 📜GetSalesByCategoryAndMonthUseCase.ts
-┃ ┃ ┃ ┃ ┣ 📜ListProductsUseCase.ts
-┃ ┃ ┃ ┃ ┗ 📜RemoveProductFromCartUseCase.ts
-┃ ┃ ┗ 📂domain
-┃ ┃ ┃ ┣ 📜Cart.ts
-┃ ┃ ┃ ┣ 📜Product.ts
-┃ ┃ ┃ ┣ 📜Sale.ts
-┃ ┃ ┃ ┗ 📜types.ts
-┃ ┣ 📂infrastructure
-┃ ┃ ┣ 📂container
-┃ ┃ ┃ ┗ 📜index.ts
-┃ ┃ ┣ 📂database
-┃ ┃ ┃ ┗ 📜dbManager.ts
-┃ ┃ ┣ 📂entities
-┃ ┃ ┃ ┣ 📜CartSchema.ts
-┃ ┃ ┃ ┣ 📜ProductSchema.ts
-┃ ┃ ┃ ┣ 📜SaleSchema.ts
-┃ ┃ ┃ ┗ 📜UserSchema.ts
-┃ ┃ ┗ 📂repositories
-┃ ┃ ┃ ┣ 📜CartRepository.ts
-┃ ┃ ┃ ┣ 📜ProductRepository.ts
-┃ ┃ ┃ ┗ 📜SaleRepository.ts
-┃ ┣ 📂interfaces
-┃ ┃ ┣ 📜ICartService.ts
-┃ ┃ ┣ 📜IProductService.ts
-┃ ┃ ┗ 📜ISaleService.ts
-┃ ┗ 📂migrations
-┃ ┃ ┣ 📜1718731352571-tableProductAndCart.ts
-┃ ┃ ┣ 📜1718748352575-tableUser.ts
-┃ ┃ ┣ 📜1718766968161-InsertUsers.ts
-┃ ┃ ┣ 📜1718767030845-InsertProduct.ts
-┃ ┃ ┣ 📜1718805759682-tableSalesAndRelationships.ts
-┃ ┃ ┗ 📜1718805793402-insertSales.ts
-┣ ormconfig.ts
-┣ package.json
-┣ serverless.ts
-┣ tsconfig.json
+├── src
+│ ├── adapters
+│ │ ├── container
+│ │ │ └── index.ts
+│ │ └── primary
+│ │ └── http
+│ │ ├── cartHandler.ts
+│ │ ├── productHandler.ts
+│ │ └── salesHandler.ts
+│ ├── core
+│ │ ├── application
+│ │ │ └── usecases
+│ │ │ ├── AddProductToCartUseCase.ts
+│ │ │ ├── CreateProductUseCase.ts
+│ │ │ ├── GetCartUseCase.ts
+│ │ │ ├── GetProductDetailsUseCase.ts
+│ │ │ ├── GetSalesByCategoryAndMonthUseCase.ts
+│ │ │ ├── ListProductsUseCase.ts
+│ │ │ └── RemoveProductFromCartUseCase.ts
+│ │ └── domain
+│ │ ├── Cart.ts
+│ │ ├── Product.ts
+│ │ ├── Sale.ts
+│ │ └── types.ts
+│ ├── infrastructure
+│ │ ├── container
+│ │ │ └── index.ts
+│ │ ├── database
+│ │ │ └── dbManager.ts
+│ │ ├── entities
+│ │ │ ├── CartSchema.ts
+│ │ │ ├── ProductSchema.ts
+│ │ │ ├── SaleSchema.ts
+│ │ │ └── UserSchema.ts
+│ │ └── repositories
+│ │ ├── CartRepository.ts
+│ │ ├── ProductRepository.ts
+│ │ └── SaleRepository.ts
+│ ├── interfaces
+│ │ ├── ICartService.ts
+│ │ ├── IProductService.ts
+│ │ └── ISaleService.ts
+│ └── migrations
+│ ├── 1718731352571-tableProductAndCart.ts
+│ ├── 1718748352575-tableUser.ts
+│ ├── 1718766968161-InsertUsers.ts
+│ ├── 1718767030845-InsertProduct.ts
+│ ├── 1718805759682-tableSalesAndRelationships.ts
+│ └── 1718805793402-insertSales.ts
+├── ormconfig.ts
+├── package.json
+├── serverless.ts
+├── tsconfig.json
+└── README.md
 
 ### Migraciones
 
