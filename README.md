@@ -20,6 +20,7 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
    - DB_HOST=localhost
    - DB_USER=tu-usuario
    - DB_PASSWORD=tu-contraseña
+   - DB_DATABASE=test-marketplace
 
 ### Uso
 
