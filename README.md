@@ -24,18 +24,18 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 2. Documentación API con Postman:
 
 - Listar productos
-  GET - http://localhost:3000/dev/products
+  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/products
 
 - Buscar producto
-  GET - http://localhost:3000/dev/products?search=Product 1
+  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/products?search=Product 1
   Query Params
   Key:search value:Product 1
 
 - Detalle del producto
-  GET - http://localhost:3000/dev/products/1
+  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/products/1
 
 - Agregar producto al carrito de compras
-  POST - http://localhost:3000/dev/cart/products
+  POST - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/cart/products
   Request Headers
   key: user-id value: 1
   Body raw (json)
@@ -44,7 +44,7 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
   }
 
 - Detalle del carrito de compras
-  GET - http://localhost:3000/dev/cart
+  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/cart
   Request Headers
   key: user-id value: 1
   Body raw (json)
@@ -53,7 +53,7 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
   }
 
 - Remover producto del carrito de compras
-  DELETE - http://localhost:3000/dev/cart/products
+  DELETE - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/cart/products
   Request Headers
   key: user-id value: 1
   Body raw (json)
@@ -62,10 +62,21 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
   }
 
 - Ventas por categoria y mes
-  GET - http://localhost:3000/dev/sales/category-month
+  GET - https://876e14mc01.execute-api.us-east-1.amazonaws.com/prod/sales/category-month
+
+  3. Funciones:
+
+  - listProducts: test-marketplace-prod-listProducts
+  - createProduct: test-marketplace-prod-createProduct
+  - getProductDetails: test-marketplace-prod-getProductDetails
+  - addProductToCart: test-marketplace-prod-addProductToCart
+  - removeProductFromCart: test-marketplace-prod-removeProductFromCart
+  - getCart: test-marketplace-prod-getCart
+  - getSalesByCategoryAndMonth: test-marketplace-prod-getSalesByCategoryAndMonth
 
 ### Estructura del proyecto
 
+```ini
 .
 ├── src
 │ ├── adapters
@@ -121,6 +132,7 @@ Sistema diseñado para crear una plataforma de mercado digital con funcionalidad
 ├── serverless.ts
 ├── tsconfig.json
 └── README.md
+```
 
 ### Migraciones
 
